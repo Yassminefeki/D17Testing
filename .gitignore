@@ -1,0 +1,6 @@
+__pycache__/
+.env
+allure-results/
+allure-report/
+Dockerfile
+node_modules/
