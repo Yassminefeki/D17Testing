@@ -1,20 +1,30 @@
 import os
 import requests
 import json
+from dotenv import load_dotenv
 
-# --- Configuration ---
-JIRA_DOMAIN = "yesminefk.atlassian.net"  # Your Jira domain
-PROJECT_KEY = "DT"                      # Your Jira project key
-EPIC_KEY = "D17-EP1"                    # The key of your 'D17 Test Automation Project' Epic
+# Load environment variables from .env file
+load_dotenv()
 
-# Get credentials from environment variables for security
-JIRA_EMAIL = os.environ.get("JIRA_EMAIL")
-JIRA_API_TOKEN = os.environ.get("JIRA_API_TOKEN")
+# --- Configuration from .env file ---
+JIRA_DOMAIN = os.getenv("JIRA_DOMAIN")
+PROJECT_KEY = os.getenv("PROJECT_KEY")
+EPIC_KEY = os.getenv("EPIC_KEY")
+JIRA_EMAIL = os.getenv("JIRA_EMAIL")
+JIRA_API_TOKEN = os.getenv("JIRA_API_TOKEN")
 
-if not JIRA_EMAIL or not JIRA_API_TOKEN:
-    print("Error: Please set JIRA_EMAIL and JIRA_API_TOKEN environment variables.")
-    print("Example: $env:JIRA_EMAIL='your-email@example.com' (PowerShell)")
-    print("Example: $env:JIRA_API_TOKEN='your-api-token' (PowerShell)")
+# --- Validation ---
+missing_vars = []
+if not JIRA_DOMAIN or JIRA_DOMAIN == "your-domain.atlassian.net": missing_vars.append("JIRA_DOMAIN")
+if not PROJECT_KEY or PROJECT_KEY == "YOUR_PROJECT_KEY": missing_vars.append("PROJECT_KEY")
+if not EPIC_KEY or EPIC_KEY == "YOUR_EPIC_KEY": missing_vars.append("EPIC_KEY")
+if not JIRA_EMAIL or JIRA_EMAIL == "your-email@example.com": missing_vars.append("JIRA_EMAIL")
+if not JIRA_API_TOKEN or JIRA_API_TOKEN == "your-jira-api-token": missing_vars.append("JIRA_API_TOKEN")
+
+if missing_vars:
+    print("Error: Please update the following variables in your .env file:")
+    for var in missing_vars:
+        print(f" - {var}")
     exit(1)
 
 API_URL = f"https://{JIRA_DOMAIN}/rest/api/3/issue"
