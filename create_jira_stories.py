@@ -1,7 +1,17 @@
 import os
-import requests
+import sys
+try:
+    import requests
+except ImportError:
+    print("Missing dependency 'requests'. Install with 'pip install -r requirements.txt'.")
+    sys.exit(1)
 import json
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+except ImportError:
+    print("Missing dependency 'python-dotenv'. Install with 'pip install -r requirements.txt'.")
+    sys.exit(1)
+from urllib.parse import urlparse
 
 # Load environment variables from .env file
 load_dotenv()
@@ -25,9 +35,25 @@ if missing_vars:
     print("Error: Please update the following variables in your .env file:")
     for var in missing_vars:
         print(f" - {var}")
-    exit(1)
+    sys.exit(1)
 
-API_URL = f"https://{JIRA_DOMAIN}/rest/api/3/issue"
+def _normalize_domain(domain: str) -> str:
+    """Return a domain/host without scheme or trailing slashes.
+
+    Accepts values like `your-domain.atlassian.net` or
+    `https://your-domain.atlassian.net/` and returns `your-domain.atlassian.net`.
+    """
+    if not domain:
+        return domain
+    domain = domain.strip()
+    parsed = urlparse(domain)
+    if parsed.scheme:
+        host = parsed.netloc
+    else:
+        host = domain
+    return host.rstrip("/")
+
+API_URL = f"https://{_normalize_domain(JIRA_DOMAIN)}/rest/api/3/issue"
 HEADERS = {
     "Accept": "application/json",
     "Content-Type": "application/json"
