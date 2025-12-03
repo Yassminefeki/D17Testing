@@ -16,7 +16,7 @@ options.no_reset = True                 # Garde la session si déjà connecté
 driver = webdriver.Remote("http://localhost:4723", options=options)
 time.sleep(5)  # attendre le lancement de l'app
 
-print("✅ Connected to the app successfully!")
+print("✅ Connected to the app successfully!")    
 
 # 3️⃣ Fermer l'application
-driver.quit()
+driver.quit() 
