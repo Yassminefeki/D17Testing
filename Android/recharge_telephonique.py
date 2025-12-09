@@ -89,7 +89,6 @@ class TestRechargeTelephonique(unittest.TestCase):
                 "ECHEC DE L'OPÉRATION", error_message.text,
                 "Le message d'erreur pour PIN incorrect n'est pas affiché"
             )
-
             # ---------------------------------------------
             # Step 9 : Fermer le message d’erreur
             # ---------------------------------------------
