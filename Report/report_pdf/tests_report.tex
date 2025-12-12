@@ -1,0 +1,127 @@
+\documentclass{article}%
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
+\usepackage{lmodern}%
+\usepackage{textcomp}%
+\usepackage{lastpage}%
+%
+\textbackslash{}usepackage{[}french{]}\{babel\}%
+\textbackslash{}usepackage{[}utf8{]}\{inputenc\}%
+\textbackslash{}usepackage{[}a4paper,margin=2cm{]}\{geometry\}%
+\textbackslash{}title\{Rapport des Tests Automatisés\}%
+\textbackslash{}date\{\textbackslash{}today\}%
+%
+\begin{document}%
+\normalsize%
+\textbackslash{}maketitle%
+\textbackslash{}tableofcontents%
+\textbackslash{}newpage%
+\section{TC{-}D17{-}INV{-}001 {-} Mot de passe trop court}%
+\label{sec:TC{-}D17{-}INV{-}001{-}Motdepassetropcourt}%
+\textbackslash{}textbf\{Données Test:\} abc\newline%
+\newline%
+%
+\textbackslash{}textbf\{Résultat Attendu:\} Le système affiche le message d'erreur 'Veuillez saisir un mot de passe composé de 4 à 6 caractères.'\newline%
+\newline%
+%
+\textbackslash{}textbf\{Statut d'Exécution:\} PASS\newline%
+\newline%
+%
+\textbackslash{}textbf\{Date d'Exécution:\} 2025{-}12{-}12 11:57:08\newline%
+\newline%
+%
+\textbackslash{}textbf\{Note défaut:\} Erreur Inline attendue détectée : 'Veuillez saisir un mot de passe composé de 4 à 6 caractères'\newline%
+\newline%
+%
+\textbackslash{}textbf\{Étapes Test:\}\newline%
+%
+\begin{enumerate}%
+\item%
+Saisir un mot de passe de moins de 4 caractères (ex: 'abc') dans le champ MDP.%
+\item%
+Cliquer sur le bouton de connexion.%
+\end{enumerate}
+
+%
+\section{TC{-}D17{-}INV{-}002 {-} Mot de passe trop long}%
+\label{sec:TC{-}D17{-}INV{-}002{-}Motdepassetroplong}%
+\textbackslash{}textbf\{Données Test:\} abcdefg\newline%
+\newline%
+%
+\textbackslash{}textbf\{Résultat Attendu:\} Il n'écrit que les 6 premiers lettres et Le système affiche le message d'erreur 'Veuillez Vérifier Vos Données.'\newline%
+\newline%
+%
+\textbackslash{}textbf\{Statut d'Exécution:\} PASS\newline%
+\newline%
+%
+\textbackslash{}textbf\{Date d'Exécution:\} 2025{-}12{-}12 11:57:39\newline%
+\newline%
+%
+\textbackslash{}textbf\{Note défaut:\} Erreur Pop{-}up transactionnelle détectée : 'VEUILLEZ VÉRIFIER VOS DONNÉES!'\newline%
+\newline%
+%
+\textbackslash{}textbf\{Étapes Test:\}\newline%
+%
+\begin{enumerate}%
+\item%
+Saisir un mot de passe de plus de 6 caractères (ex: 'abcdefg') dans le champ MDP.%
+\item%
+Cliquer sur le bouton de connexion.%
+\end{enumerate}
+
+%
+\section{TC{-}D17{-}INV{-}003 {-} Mot de passe avec caractères spéciaux}%
+\label{sec:TC{-}D17{-}INV{-}003{-}Motdepasseaveccaractresspciaux}%
+\textbackslash{}textbf\{Données Test:\} pass@!\newline%
+\newline%
+%
+\textbackslash{}textbf\{Résultat Attendu:\} N'écrit que les caractéres non spéciaux Le système affiche le message d'erreur 'Veuillez Vérifier Vos Données.' ou 'Ce Champ est obligatoire!'\newline%
+\newline%
+%
+\textbackslash{}textbf\{Statut d'Exécution:\} PASS\newline%
+\newline%
+%
+\textbackslash{}textbf\{Date d'Exécution:\} 2025{-}12{-}12 11:57:48\newline%
+\newline%
+%
+\textbackslash{}textbf\{Note défaut:\} Erreur Pop{-}up transactionnelle détectée : 'VEUILLEZ VÉRIFIER VOS DONNÉES!'\newline%
+\newline%
+%
+\textbackslash{}textbf\{Étapes Test:\}\newline%
+%
+\begin{enumerate}%
+\item%
+Saisir un mot de passe contenant des caractères spéciaux (ex: 'pass@!') dans le champ MDP.%
+\item%
+Cliquer sur le bouton de connexion.%
+\end{enumerate}
+
+%
+\section{TC{-}D17{-}INV{-}004 {-} Mot de passe vide}%
+\label{sec:TC{-}D17{-}INV{-}004{-}Motdepassevide}%
+\textbackslash{}textbf\{Données Test:\} {[}VIDE{]}\newline%
+\newline%
+%
+\textbackslash{}textbf\{Résultat Attendu:\} Le système affiche le message d'erreur 'Ce Champ est obligatoire!'\newline%
+\newline%
+%
+\textbackslash{}textbf\{Statut d'Exécution:\} PASS\newline%
+\newline%
+%
+\textbackslash{}textbf\{Date d'Exécution:\} 2025{-}12{-}12 11:57:57\newline%
+\newline%
+%
+\textbackslash{}textbf\{Note défaut:\} Erreur Inline attendue détectée : 'Ce champ est obligatoire!'\newline%
+\newline%
+%
+\textbackslash{}textbf\{Étapes Test:\}\newline%
+%
+\begin{enumerate}%
+\item%
+Laisser le champ MDP vide.%
+\item%
+Cliquer sur le bouton de connexion.%
+\end{enumerate}
+
+%
+\end{document}

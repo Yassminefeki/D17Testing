@@ -1,0 +1,54 @@
+[
+    {
+        "ID_Test": "TC-D17-INV-001",
+        "Titre_Test": "Mot de passe trop court",
+        "Étapes_Test": [
+            "Saisir un mot de passe de moins de 4 caractères (ex: 'abc') dans le champ MDP.",
+            "Cliquer sur le bouton de connexion."
+        ],
+        "Données_Test": "abc",
+        "Résultat_Attendu": "Le système affiche le message d'erreur 'Veuillez saisir un mot de passe composé de 4 à 6 caractères.'",
+        "Statut_Execution": "PASS",
+        "Date_Execution": "2025-12-12 11:57:08",
+        "Note_Defaut": "Erreur Inline attendue détectée : 'Veuillez saisir un mot de passe composé de 4 à 6 caractères'"
+    },
+    {
+        "ID_Test": "TC-D17-INV-002",
+        "Titre_Test": "Mot de passe trop long",
+        "Étapes_Test": [
+            "Saisir un mot de passe de plus de 6 caractères (ex: 'abcdefg') dans le champ MDP.",
+            "Cliquer sur le bouton de connexion."
+        ],
+        "Données_Test": "abcdefg",
+        "Résultat_Attendu": "Il n'écrit que les 6 premiers lettres et Le système affiche le message d'erreur 'Veuillez Vérifier Vos Données.'",
+        "Statut_Execution": "PASS",
+        "Date_Execution": "2025-12-12 11:57:39",
+        "Note_Defaut": "Erreur Pop-up transactionnelle détectée : 'VEUILLEZ VÉRIFIER VOS DONNÉES!'"
+    },
+    {
+        "ID_Test": "TC-D17-INV-003",
+        "Titre_Test": "Mot de passe avec caractères spéciaux",
+        "Étapes_Test": [
+            "Saisir un mot de passe contenant des caractères spéciaux (ex: 'pass@!') dans le champ MDP.",
+            "Cliquer sur le bouton de connexion."
+        ],
+        "Données_Test": "pass@!",
+        "Résultat_Attendu": "N'écrit que les caractéres non spéciaux Le système affiche le message d'erreur 'Veuillez Vérifier Vos Données.' ou 'Ce Champ est obligatoire!'",
+        "Statut_Execution": "PASS",
+        "Date_Execution": "2025-12-12 11:57:48",
+        "Note_Defaut": "Erreur Pop-up transactionnelle détectée : 'VEUILLEZ VÉRIFIER VOS DONNÉES!'"
+    },
+    {
+        "ID_Test": "TC-D17-INV-004",
+        "Titre_Test": "Mot de passe vide",
+        "Étapes_Test": [
+            "Laisser le champ MDP vide.",
+            "Cliquer sur le bouton de connexion."
+        ],
+        "Données_Test": "[VIDE]",
+        "Résultat_Attendu": "Le système affiche le message d'erreur 'Ce Champ est obligatoire!'",
+        "Statut_Execution": "PASS",
+        "Date_Execution": "2025-12-12 11:57:57",
+        "Note_Defaut": "Erreur Inline attendue détectée : 'Ce champ est obligatoire!'"
+    }
+]

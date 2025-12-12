@@ -7,7 +7,7 @@
             "Cliquer sur le bouton de connexion."
         ],
         "Données_Test": "abc",
-        "Résultat_Attendu": "Le système affiche le message d'erreur 'Le mot de passe doit contenir entre 4 et 6 caractères.'"
+        "Résultat_Attendu": "Le système affiche le message d'erreur 'Veuillez saisir un mot de passe composé de 4 à 6 caractères.'"
     },
     {
         "ID_Test": "TC-D17-INV-002",
@@ -17,7 +17,7 @@
             "Cliquer sur le bouton de connexion."
         ],
         "Données_Test": "abcdefg",
-        "Résultat_Attendu": "Le système affiche le message d'erreur 'Le mot de passe doit contenir entre 4 et 6 caractères.'"
+        "Résultat_Attendu": "Il n'écrit que les 6 premiers lettres et Le système affiche le message d'erreur 'Veuillez Vérifier Vos Données.'"
     },
     {
         "ID_Test": "TC-D17-INV-003",
@@ -27,7 +27,7 @@
             "Cliquer sur le bouton de connexion."
         ],
         "Données_Test": "pass@!",
-        "Résultat_Attendu": "Le système affiche le message d'erreur 'Le mot de passe doit être alphanumérique (lettres et chiffres).'"
+        "Résultat_Attendu": "N'écrit que les caractéres non spéciaux Le système affiche le message d'erreur 'Veuillez Vérifier Vos Données.' ou 'Ce Champ est obligatoire!'"
     },
     {
         "ID_Test": "TC-D17-INV-004",
@@ -37,6 +37,6 @@
             "Cliquer sur le bouton de connexion."
         ],
         "Données_Test": "[VIDE]",
-        "Résultat_Attendu": "Le système affiche le message d'erreur 'Le mot de passe ne peut pas être vide.' ou 'Veuillez saisir un mot de passe.'"
+        "Résultat_Attendu": "Le système affiche le message d'erreur 'Ce Champ est obligatoire!'"
     }
 ]
