@@ -2,28 +2,19 @@ from appium import webdriver
 from appium.options.android import UiAutomator2Options
 import time
 
-# 1️⃣ Configuration Appium
+# 1️⃣ Options Appium (juste pour démarrer l'app)
 options = UiAutomator2Options()
-
-# Configuration du device
 options.platform_name = "Android"
-options.platform_version = "16"       
-options.device_name = "RZCW81HN1XM"     
+options.platform_version = "16"          
+options.device_name = "RZCW81HN1XM"      
+options.app_package = "tn.mobipost"
+options.app_activity = "tn.anypli.mobiposte.ui.activity.SplashScreenActivity"
 
-# Configuration de l'application
-options.app_package = "tn.mobipost"      
-# options.app_activity = "tn.mobipost.MainActivity" 
-
-# Options supplémentaires
-options.automation_name = "UiAutomator2"
-options.no_reset = True          
-# 2️⃣ Connexion au serveur Appium
+# 2️⃣ Lancer Appium + lancer l'application
 driver = webdriver.Remote("http://localhost:4723", options=options)
 
-time.sleep(5)  # temps de lancement
+# 3️⃣ Attendre que l'app s'ouvre
+time.sleep(5)
 
-print("✅ Connected to the app successfully!")
-
-# 3️⃣ Fermer l'application
+# 4️⃣ Fermer
 driver.quit()
-print("🔚 App closed successfully!")
