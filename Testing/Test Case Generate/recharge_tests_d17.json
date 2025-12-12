@@ -1,0 +1,144 @@
+[
+    {
+        "ID_Test": "TC-RECH-001",
+        "Titre_Test": "Recharge succès avec montant fixe",
+        "Préconditions": "Compte D17 avec solde suffisant (ex: > 5 TND).",
+        "Étapes_Test": [
+            "Accéder à l'écran de recharge téléphonique.",
+            "Sélectionner \"Tunisie Telecom\" comme opérateur.",
+            "Saisir un N° GSM valide (ex: 20123456).",
+            "Sélectionner l'option de montant fixe \"5 TND\".",
+            "Cliquer sur le bouton \"Recharger\".",
+            "Confirmer la transaction si une confirmation est demandée."
+        ],
+        "Données_Test": "Opérateur: Tunisie Telecom, N° GSM: 20123456, Montant: 5 TND",
+        "Résultat_Attendu": "La recharge est effectuée avec succès. Un message de confirmation s'affiche. Le solde D17 est débité de 5 TND. L'utilisateur reçoit une notification de recharge."
+    },
+    {
+        "ID_Test": "TC-RECH-002",
+        "Titre_Test": "Recharge succès avec \"Autre montant\"",
+        "Préconditions": "Compte D17 avec solde suffisant (ex: > 15.50 TND).",
+        "Étapes_Test": [
+            "Accéder à l'écran de recharge téléphonique.",
+            "Sélectionner \"Ooredoo\" comme opérateur.",
+            "Saisir un N° GSM valide (ex: 98765432).",
+            "Sélectionner l'option \"Autre montant\" et saisir \"15.50\" TND.",
+            "Cliquer sur le bouton \"Recharger\".",
+            "Confirmer la transaction si une confirmation est demandée."
+        ],
+        "Données_Test": "Opérateur: Ooredoo, N° GSM: 98765432, Montant: 15.50 TND",
+        "Résultat_Attendu": "La recharge est effectuée avec succès. Un message de confirmation s'affiche. Le solde D17 est débité de 15.50 TND. L'utilisateur reçoit une notification de recharge."
+    },
+    {
+        "ID_Test": "TC-RECH-003",
+        "Titre_Test": "Échec recharge - N° GSM manquant",
+        "Préconditions": "Aucune.",
+        "Étapes_Test": [
+            "Accéder à l'écran de recharge téléphonique.",
+            "Sélectionner \"Orange\" comme opérateur.",
+            "Laisser le champ \"N° GSM à recharger\" vide.",
+            "Sélectionner l'option de montant fixe \"10 TND\".",
+            "Cliquer sur le bouton \"Recharger\"."
+        ],
+        "Données_Test": "Opérateur: Orange, N° GSM: vide, Montant: 10 TND",
+        "Résultat_Attendu": "Un message d'erreur s'affiche indiquant que le champ \"N° GSM\" est obligatoire ou invalide. La recharge n'est pas effectuée."
+    },
+    {
+        "ID_Test": "TC-RECH-004",
+        "Titre_Test": "Échec recharge - N° GSM invalide (moins de 8 chiffres)",
+        "Préconditions": "Aucune.",
+        "Étapes_Test": [
+            "Accéder à l'écran de recharge téléphonique.",
+            "Sélectionner \"Tunisie Telecom\" comme opérateur.",
+            "Saisir \"2012345\" (7 chiffres) dans le champ \"N° GSM à recharger\".",
+            "Sélectionner l'option de montant fixe \"5 TND\".",
+            "Cliquer sur le bouton \"Recharger\"."
+        ],
+        "Données_Test": "Opérateur: Tunisie Telecom, N° GSM: 2012345, Montant: 5 TND",
+        "Résultat_Attendu": "Un message d'erreur s'affiche indiquant que le N° GSM doit comporter 8 chiffres. La recharge n'est pas effectuée."
+    },
+    {
+        "ID_Test": "TC-RECH-005",
+        "Titre_Test": "Échec recharge - N° GSM invalide (plus de 8 chiffres)",
+        "Préconditions": "Aucune.",
+        "Étapes_Test": [
+            "Accéder à l'écran de recharge téléphonique.",
+            "Sélectionner \"Ooredoo\" comme opérateur.",
+            "Saisir \"987654321\" (9 chiffres) dans le champ \"N° GSM à recharger\".",
+            "Sélectionner l'option de montant fixe \"10 TND\".",
+            "Cliquer sur le bouton \"Recharger\"."
+        ],
+        "Données_Test": "Opérateur: Ooredoo, N° GSM: 987654321, Montant: 10 TND",
+        "Résultat_Attendu": "Un message d'erreur s'affiche indiquant que le N° GSM doit comporter 8 chiffres. La recharge n'est pas effectuée."
+    },
+    {
+        "ID_Test": "TC-RECH-006",
+        "Titre_Test": "Échec recharge - Opérateur non sélectionné",
+        "Préconditions": "Aucune.",
+        "Étapes_Test": [
+            "Accéder à l'écran de recharge téléphonique.",
+            "Ne pas sélectionner d'opérateur.",
+            "Saisir un N° GSM valide (ex: 50112233).",
+            "Sélectionner l'option de montant fixe \"20 TND\".",
+            "Cliquer sur le bouton \"Recharger\"."
+        ],
+        "Données_Test": "Opérateur: non sélectionné, N° GSM: 50112233, Montant: 20 TND",
+        "Résultat_Attendu": "Un message d'erreur s'affiche indiquant que l'opérateur doit être sélectionné. La recharge n'est pas effectuée."
+    },
+    {
+        "ID_Test": "TC-RECH-007",
+        "Titre_Test": "Échec recharge - Solde D17 insuffisant",
+        "Préconditions": "Compte D17 avec solde insuffisant (ex: 2 TND) pour une recharge de 5 TND.",
+        "Étapes_Test": [
+            "Accéder à l'écran de recharge téléphonique.",
+            "Sélectionner \"Orange\" comme opérateur.",
+            "Saisir un N° GSM valide (ex: 97887766).",
+            "Sélectionner l'option de montant fixe \"5 TND\".",
+            "Cliquer sur le bouton \"Recharger\"."
+        ],
+        "Données_Test": "Opérateur: Orange, N° GSM: 97887766, Montant: 5 TND, Solde D17: 2 TND",
+        "Résultat_Attendu": "Un message d'erreur s'affiche indiquant \"Solde D17 insuffisant\". La recharge n'est pas effectuée."
+    },
+    {
+        "ID_Test": "TC-RECH-008",
+        "Titre_Test": "Échec recharge - Montant \"Autre montant\" inférieur au minimum (1 TND)",
+        "Préconditions": "Aucune.",
+        "Étapes_Test": [
+            "Accéder à l'écran de recharge téléphonique.",
+            "Sélectionner \"Tunisie Telecom\" comme opérateur.",
+            "Saisir un N° GSM valide (ex: 22334455).",
+            "Sélectionner l'option \"Autre montant\" et saisir \"0.50\" TND.",
+            "Cliquer sur le bouton \"Recharger\"."
+        ],
+        "Données_Test": "Opérateur: Tunisie Telecom, N° GSM: 22334455, Montant: 0.50 TND",
+        "Résultat_Attendu": "Un message d'erreur s'affiche indiquant que le montant doit être supérieur à 1 TND. La recharge n'est pas effectuée."
+    },
+    {
+        "ID_Test": "TC-RECH-009",
+        "Titre_Test": "Échec recharge - N° GSM invalide (caractères non numériques)",
+        "Préconditions": "Aucune.",
+        "Étapes_Test": [
+            "Accéder à l'écran de recharge téléphonique.",
+            "Sélectionner \"Ooredoo\" comme opérateur.",
+            "Saisir \"2012ABCD\" dans le champ \"N° GSM à recharger\".",
+            "Sélectionner l'option de montant fixe \"10 TND\".",
+            "Cliquer sur le bouton \"Recharger\"."
+        ],
+        "Données_Test": "Opérateur: Ooredoo, N° GSM: 2012ABCD, Montant: 10 TND",
+        "Résultat_Attendu": "Un message d'erreur s'affiche indiquant que le N° GSM doit être numérique. La recharge n'est pas effectuée."
+    },
+    {
+        "ID_Test": "TC-RECH-010",
+        "Titre_Test": "Échec recharge - Montant \"Autre montant\" non numérique",
+        "Préconditions": "Aucune.",
+        "Étapes_Test": [
+            "Accéder à l'écran de recharge téléphonique.",
+            "Sélectionner \"Orange\" comme opérateur.",
+            "Saisir un N° GSM valide (ex: 99887766).",
+            "Sélectionner l'option \"Autre montant\" et saisir \"DIX\" TND.",
+            "Cliquer sur le bouton \"Recharger\"."
+        ],
+        "Données_Test": "Opérateur: Orange, N° GSM: 99887766, Montant: DIX TND",
+        "Résultat_Attendu": "Un message d'erreur s'affiche indiquant que le montant doit être un nombre valide. La recharge n'est pas effectuée."
+    }
+]

@@ -1,0 +1,67 @@
+[
+    {
+        "ID_Test": "TC-JNL-001",
+        "Titre_Test": "Téléchargement succès (période 1 mois)",
+        "Préconditions": "Compte actif, transactions disponibles entre 12/11/2025 et 12/12/2025.",
+        "Étapes_Test": [
+            "Accéder à la fonctionnalité de téléchargement du Journal D17.",
+            "Sélectionner '12/11/2025' comme Date de Début.",
+            "Cliquer sur le bouton 'Télécharger'."
+        ],
+        "Date_Debut_Saisie": "12/11/2025",
+        "Date_Fin_Implicite": "12/12/2025",
+        "Résultat_Attendu": "Le fichier Journal D17 est téléchargé, contenant toutes les transactions effectuées entre le 12/11/2025 et le 12/12/2025 inclus."
+    },
+    {
+        "ID_Test": "TC-JNL-002",
+        "Titre_Test": "Téléchargement succès (Date de Début égale à la Date du Jour)",
+        "Préconditions": "Compte actif, transactions disponibles le 12/12/2025.",
+        "Étapes_Test": [
+            "Accéder à la fonctionnalité de téléchargement du Journal D17.",
+            "Sélectionner '12/12/2025' comme Date de Début.",
+            "Cliquer sur le bouton 'Télécharger'."
+        ],
+        "Date_Debut_Saisie": "12/12/2025",
+        "Date_Fin_Implicite": "12/12/2025",
+        "Résultat_Attendu": "Le fichier Journal D17 est téléchargé, contenant toutes les transactions effectuées le 12/12/2025."
+    },
+    {
+        "ID_Test": "TC-JNL-003",
+        "Titre_Test": "Échec téléchargement (Date de Début future)",
+        "Préconditions": "Compte actif.",
+        "Étapes_Test": [
+            "Accéder à la fonctionnalité de téléchargement du Journal D17.",
+            "Sélectionner '13/12/2025' comme Date de Début.",
+            "Cliquer sur le bouton 'Télécharger'."
+        ],
+        "Date_Debut_Saisie": "13/12/2025",
+        "Date_Fin_Implicite": "12/12/2025",
+        "Résultat_Attendu": "Un message d'erreur est affiché indiquant que 'La date de début ne peut pas être postérieure à la date du jour'. Aucun fichier n'est téléchargé."
+    },
+    {
+        "ID_Test": "TC-JNL-004",
+        "Titre_Test": "Échec téléchargement (Date de Début trop ancienne)",
+        "Préconditions": "Compte actif.",
+        "Étapes_Test": [
+            "Accéder à la fonctionnalité de téléchargement du Journal D17.",
+            "Sélectionner '01/01/2024' comme Date de Début (dépassant la limite d'1 an avant 12/12/2025).",
+            "Cliquer sur le bouton 'Télécharger'."
+        ],
+        "Date_Debut_Saisie": "01/01/2024",
+        "Date_Fin_Implicite": "12/12/2025",
+        "Résultat_Attendu": "Un message d'erreur est affiché indiquant que 'La période sélectionnée dépasse l'historique maximal autorisé (1 an)'. Aucun fichier n'est téléchargé."
+    },
+    {
+        "ID_Test": "TC-JNL-005",
+        "Titre_Test": "Échec téléchargement (Période sans transactions)",
+        "Préconditions": "Compte actif, aucune transaction enregistrée entre le 01/01/2025 et le 12/12/2025.",
+        "Étapes_Test": [
+            "Accéder à la fonctionnalité de téléchargement du Journal D17.",
+            "Sélectionner '01/01/2025' comme Date de Début.",
+            "Cliquer sur le bouton 'Télécharger'."
+        ],
+        "Date_Debut_Saisie": "01/01/2025",
+        "Date_Fin_Implicite": "12/12/2025",
+        "Résultat_Attendu": "Un message d'information est affiché indiquant 'Aucune transaction trouvée pour la période sélectionnée'. Aucun fichier n'est téléchargé."
+    }
+]

@@ -1,0 +1,42 @@
+[
+    {
+        "ID_Test": "TC-D17-INV-001",
+        "Titre_Test": "Mot de passe trop court",
+        "Étapes_Test": [
+            "Saisir un mot de passe de moins de 4 caractères (ex: 'abc') dans le champ MDP.",
+            "Cliquer sur le bouton de connexion."
+        ],
+        "Données_Test": "abc",
+        "Résultat_Attendu": "Le système affiche le message d'erreur 'Le mot de passe doit contenir entre 4 et 6 caractères.'"
+    },
+    {
+        "ID_Test": "TC-D17-INV-002",
+        "Titre_Test": "Mot de passe trop long",
+        "Étapes_Test": [
+            "Saisir un mot de passe de plus de 6 caractères (ex: 'abcdefg') dans le champ MDP.",
+            "Cliquer sur le bouton de connexion."
+        ],
+        "Données_Test": "abcdefg",
+        "Résultat_Attendu": "Le système affiche le message d'erreur 'Le mot de passe doit contenir entre 4 et 6 caractères.'"
+    },
+    {
+        "ID_Test": "TC-D17-INV-003",
+        "Titre_Test": "Mot de passe avec caractères spéciaux",
+        "Étapes_Test": [
+            "Saisir un mot de passe contenant des caractères spéciaux (ex: 'pass@!') dans le champ MDP.",
+            "Cliquer sur le bouton de connexion."
+        ],
+        "Données_Test": "pass@!",
+        "Résultat_Attendu": "Le système affiche le message d'erreur 'Le mot de passe doit être alphanumérique (lettres et chiffres).'"
+    },
+    {
+        "ID_Test": "TC-D17-INV-004",
+        "Titre_Test": "Mot de passe vide",
+        "Étapes_Test": [
+            "Laisser le champ MDP vide.",
+            "Cliquer sur le bouton de connexion."
+        ],
+        "Données_Test": "[VIDE]",
+        "Résultat_Attendu": "Le système affiche le message d'erreur 'Le mot de passe ne peut pas être vide.' ou 'Veuillez saisir un mot de passe.'"
+    }
+]
