@@ -42,4 +42,5 @@ The project follows a multi-layered approach:
    ```bash
    pip install -r requirements.txt
 4. Run the Appium server and connect your Android device
-
+## 📄 Project Documentation
+You can access the full technical report here: [Download Project Report (PDF)](Project_Report_D17.pdf)
