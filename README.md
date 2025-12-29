@@ -39,5 +39,7 @@ The project follows a multi-layered approach:
    ```bash
    git clone [https://github.com/Yassminefeki/D17Testing.git](https://github.com/Yassminefeki/D17Testing.git)
 2. Install Python dependencies:
+   ```bash
    pip install -r requirements.txt
-3. Run the Appium server and connect your Android device
+4. Run the Appium server and connect your Android device
+
